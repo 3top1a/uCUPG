@@ -53,7 +53,7 @@ public class cupgBody : MonoBehaviour
         rb.mass = mass;
         rb.SetDensity(density);
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        rb.AddForce(InitForce * cm.gravity * cm.gravity);
+        rb.AddForce(InitForce * cm.gravity);
 
         if(this.GetComponent<Collider>() != null){
             PhysicMaterial pm = new PhysicMaterial();
