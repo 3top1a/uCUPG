@@ -32,6 +32,8 @@ public class cupgBody : MonoBehaviour
     //A space only visible in the inspector
     [Space]
 
+    private bool Grounded = false;
+
     //The force the object will have on creation 
     public Vector3 InitForce = Vector3.zero;
 
@@ -65,26 +67,49 @@ public class cupgBody : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (CheckIfGrounded())
-            timeInAir = 1;
+        if (Grounded)
+        {
+            //remove spazzing
+            timeInAir = -0.02f;
+        }
         else
+        {
+            if(timeInAir < 0)
+            {
+                timeInAir = 1;
+            }
             timeInAir += Time.fixedDeltaTime / cm.timeDevider;
+        }
         
+        //Make gravity happen
 
-        rb.AddForce(cm.gDir * cm.gravity * mass * timeInAir * timeInAir);
+        if(cm.gravityType == cupgManager.gType.Standart)
+        {
+            rb.AddForce(cm.gDir * cm.gravity * mass * timeInAir * timeInAir);
+        }
+        else if (cm.gravityType == cupgManager.gType.Faux) 
+        {
+            Vector3 dirToPoint = (this.transform.position - cm.gDir).normalized;    
+            rb.AddForce(-dirToPoint * cm.gravity * mass);
+        } 
+        else if (cm.gravityType == cupgManager.gType.FauxWithRotation) 
+        {
+            Vector3 dirToPoint = (transform.position - cm.gDir).normalized;    
+            rb.AddForce(-dirToPoint * cm.gravity * mass);
+
+            Quaternion tarRot = Quaternion.FromToRotation(transform.right, dirToPoint) * transform.rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, tarRot, 50 * Time.deltaTime);
+        }
     }
 
-    bool CheckIfGrounded()
+    //Ground detection
+    void OnCollisionEnter(Collision other)
     {
-        RaycastHit hit;
-
-        if(Physics.Raycast(transform.position, cm.gDir , out hit)){
-            if(hit.distance < (transform.localScale.y / 2) + .1f){
-                return true;
-            }
-        }
-
-        return false;
+        Grounded = true;
+    }
+    void OnCollisionExit(Collision other)
+    {
+        Grounded = false;
     }
 
     void OnDrawGizmosSelected()
