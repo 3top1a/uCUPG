@@ -53,7 +53,7 @@ public class cupgBody : MonoBehaviour
         rb.mass = mass;
         rb.SetDensity(density);
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        rb.AddForce(InitForce * cm.g * cm.gravity);
+        rb.AddForce(InitForce * cm.gravity * cm.gravity);
 
         if(this.GetComponent<Collider>() != null){
             PhysicMaterial pm = new PhysicMaterial();
@@ -71,11 +71,7 @@ public class cupgBody : MonoBehaviour
             timeInAir += Time.fixedDeltaTime / cm.timeDevider;
         
 
-        //If not stable (eg. On ground)
-        //if(rb.)
-        //{
-            rb.AddForce(cm.gDir * cm.g * cm.gravity * mass * timeInAir);
-        //}
+        rb.AddForce(cm.gDir * cm.gravity * mass * timeInAir * timeInAir);
     }
 
     bool CheckIfGrounded()

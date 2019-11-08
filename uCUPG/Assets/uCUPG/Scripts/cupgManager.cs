@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class cupgManager : MonoBehaviour
 {
-    //I.. I really dont know why 2
-    //Pls someone fix my equation 
-    public float g = 10;
     public float gravity = 9.8f;
 
     //Direction of gravity
