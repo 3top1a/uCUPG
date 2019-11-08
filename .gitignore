@@ -34,3 +34,23 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+uCUPG/.vscode/settings.json
+uCUPG/Logs/Packages-Update.log
+uCUPG/ProjectSettings/AudioManager.asset
+uCUPG/ProjectSettings/ClusterInputManager.asset
+uCUPG/Packages/manifest.json
+uCUPG/ProjectSettings/DynamicsManager.asset
+uCUPG/ProjectSettings/EditorBuildSettings.asset
+uCUPG/ProjectSettings/EditorSettings.asset
+uCUPG/ProjectSettings/GraphicsSettings.asset
+uCUPG/ProjectSettings/InputManager.asset
+uCUPG/ProjectSettings/NavMeshAreas.asset
+uCUPG/ProjectSettings/Physics2DSettings.asset
+uCUPG/ProjectSettings/PresetManager.asset
+uCUPG/ProjectSettings/ProjectSettings.asset
+uCUPG/ProjectSettings/QualitySettings.asset
+uCUPG/ProjectSettings/TagManager.asset
+uCUPG/ProjectSettings/TimeManager.asset
+uCUPG/ProjectSettings/UnityConnectSettings.asset
+uCUPG/ProjectSettings/VFXManager.asset
+uCUPG/ProjectSettings/XRSettings.asset
