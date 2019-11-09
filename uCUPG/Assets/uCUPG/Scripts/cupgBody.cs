@@ -70,7 +70,7 @@ public class cupgBody : MonoBehaviour
         if (Grounded)
         {
             //remove spazzing
-            timeInAir = -0.02f;
+            timeInAir = 0.98f;
         }
         else
         {
