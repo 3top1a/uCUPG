@@ -19,22 +19,27 @@ public class cupgManager : MonoBehaviour
     //Controlls how much the timeInAir var will change
     public float timeDevider = 2;
 
+    public bool debug = true;
+
 
     void OnDrawGizmos()
     {
-        if (gravityType == gType.Standart) 
+        if(debug)
         {
+            if (gravityType == gType.Standart) 
+            {
 
-        }
-        else if (gravityType == gType.Faux)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawSphere(gDir, 5f);
-        }
-        else if (gravityType == gType.FauxWithRotation)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawSphere(gDir, 5f);
+            }
+            else if (gravityType == gType.Faux)
+            {
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawSphere(gDir, 5f);
+            }
+            else if (gravityType == gType.FauxWithRotation)
+            {
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawSphere(gDir, 5f);
+            }
         }
     }
 

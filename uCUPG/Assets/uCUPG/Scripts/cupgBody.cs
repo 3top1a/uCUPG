@@ -38,7 +38,8 @@ public class cupgBody : MonoBehaviour
     public Vector3 InitForce = Vector3.zero;
 
     //This script uses the rigidbody component
-    private Rigidbody rb;
+    [HideInInspector]
+    public Rigidbody rb;
 
     //Time in air the object has. Detection made poorly.
     private float timeInAir = 1;
